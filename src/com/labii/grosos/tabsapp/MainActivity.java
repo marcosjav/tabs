@@ -1,10 +1,9 @@
 package com.labii.grosos.tabsapp;
 
-import com.labii.grosos.apps.Calculator;
 import com.labii.grosos.apps.ImageDownloader;
+import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
@@ -12,17 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity implements
-		ActionBar.TabListener, OnItemSelectedListener {
+public class MainActivity extends ActionBarActivity implements	ActionBar.TabListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -116,22 +108,6 @@ public class MainActivity extends ActionBarActivity implements
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
-		
-		if (tab.getPosition() == 1){
-	        Spinner spinner = (Spinner)findViewById(R.id.spOperaciones);
-	        spinner.setOnItemSelectedListener(this);
-	        spinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Calculator.FUNCTIONS));
-		}
-	}
-
-	@Override
-	public void onTabUnselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-	}
-
-	@Override
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
 	}
 	
 	public void click(View v){
@@ -143,34 +119,15 @@ public class MainActivity extends ActionBarActivity implements
 			
 		}
 	}
-	
+
 	@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		if(position==0)
-			return;
-		Spinner spinner = (Spinner)findViewById(R.id.spOperaciones);   // A PARTIR DE LA API 14 NO HAY MÁS PROMPT
-		Calculator calculo = new Calculator();
-		TextView resultados = (TextView)findViewById(R.id.tvHistorial);
-		EditText primerTermino = (EditText)findViewById(R.id.etPrimerTermino);
-		EditText segundoTermino = (EditText)findViewById(R.id.etSegundoTermino);
-		String texto = new String(); 
+	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
 		
-		try {
-			texto = calculo.operar(primerTermino.getText().toString(), segundoTermino.getText().toString(), position);
-		} catch (Exception e) {
-			Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-			spinner.setSelection(0);
-			return;
-		}
-		Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
-		resultados.setText(texto + "\n" + resultados.getText().toString());
-		
-		
-		spinner.setSelection(0);
 	}
 
 	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
+	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
 		// TODO Auto-generated method stub
 		
 	}
