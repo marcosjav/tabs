@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.frre.labii.picdownloader.MainActivity"
+    android:background="@color/fondo" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/imageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+             <LinearLayout
+                 android:id="@+id/picsLayout"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical" >
+
+             </LinearLayout>
+
+             <Button
+                 android:id="@+id/btnDwnld"
+                 style="?android:attr/buttonStyleSmall"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:onClick="click"
+                 android:text="@string/btnDwnld"
+               	 android:shadowRadius="3"
+    			 android:shadowDx="-3"
+    			 android:shadowDy="2"/>
+
+        </LinearLayout>
+        
+    </ScrollView>
+
+</RelativeLayout>

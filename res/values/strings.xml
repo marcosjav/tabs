@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TabsApp</string>
+    <string name="title_section1">Bajar imágenes</string>
+    <string name="title_section2">Calculadora</string>
+    <string name="title_section3">Acerca</string>
+    <string name="action_settings">Settings</string>
+    <string name="btnDwnld">Descargar!!</string>
+    <string name="info">Acá doy una descripción del programa que hice</string>
+    <string name="primer_termino">Primer término:</string>
+    <string name="segundo_termino">Segundo término:</string>
+    <string name="operacion">Seleccione operación:</string>
+
+</resources>
